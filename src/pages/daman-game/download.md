@@ -2,7 +2,7 @@
 title: "Daman Game Download – Get Latest APK for Android in India"
 description: "Download Daman Game APK securely. Color prediction, Aviator & real money games. Step-by-step install guide for Android users in India."
 pubDate: 2024-07-28
-layout: ../layouts/DefaultLayout.astro
+layout: ../../layouts/DefaultLayout.astro
 ---
 
 # Daman Game Download (Latest APK 2025)
