@@ -48,3 +48,7 @@ Daman Game is a skill-based real money app popular across India. Withdrawals are
 - real money gaming app India
 - download prediction app India
 
+<div class="text-green-600 text-xl font-bold">
+  Tailwind is working! ✅
+</div>
+
