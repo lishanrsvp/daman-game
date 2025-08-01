@@ -1,28 +1,24 @@
 ---
 import "../styles/tailwind.css";
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SpeedInsights from "@vercel/speed-insights/astro";
+
 const { title, description } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="robots" content="index, follow" />
-   <!-- Optional: <link rel="canonical" href="https://https://daman-game-orpin.vercel.app/path" /> -->
-
-
-    <!-- Open Graph -->
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url.pathname} />
+    <BaseHead title={title} description={description} />
   </head>
   <body>
+    <Header />
     <main>
       <slot />
     </main>
+    <Footer />
+    <SpeedInsights />
   </body>
 </html>
