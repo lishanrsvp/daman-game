@@ -1,88 +1,96 @@
 ---
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
+import Layout from './DefaultLayout.astro';
 import FormattedDate from '../components/FormattedDate.astro';
-import Header from '../components/Header.astro';
-import  SpeedInsights  from "@vercel/speed-insights/astro"
+import SpeedInsights from "@vercel/speed-insights/astro";
 
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+
+// Create enhanced title and description for SEO
+const enhancedTitle = `${title} | Daman Game Blog - daman.log-in.uk.com`;
+const enhancedDescription = `${description} Read more gaming tips and strategies on daman.log-in.uk.com`;
 ---
 
-<html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-		<style>
-			main {
-				width: calc(100% - 2em);
-				max-width: 100%;
-				margin: 0;
-			}
-			.hero-image {
-				width: 100%;
-			}
-			.hero-image img {
-				display: block;
-				margin: 0 auto;
-				border-radius: 12px;
-				box-shadow: var(--box-shadow);
-			}
-			.prose {
-				width: 720px;
-				max-width: calc(100% - 2em);
-				margin: auto;
-				padding: 1em;
-				color: rgb(var(--gray-dark));
-			}
-			.title {
-				margin-bottom: 1em;
-				padding: 1em 0;
-				text-align: center;
-				line-height: 1;
-			}
-			.title h1 {
-				margin: 0 0 0.5em 0;
-			}
-			.date {
-				margin-bottom: 0.5em;
-				color: rgb(var(--gray));
-			}
-			.last-updated-on {
-				font-style: italic;
-			}
-		</style>
-	</head>
+<Layout title={enhancedTitle} description={enhancedDescription}>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-indigo-50 to-white py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="mb-8">
+        <div class="inline-flex items-center px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium mb-4">
+          <span class="mr-2">📰</span> Daman Game Blog
+        </div>
+      </div>
+      
+      <!-- Article Header -->
+      <div class="text-center mb-8">
+        <div class="flex items-center justify-center text-sm text-gray-500 mb-4">
+          <FormattedDate date={pubDate} />
+          {
+            updatedDate && (
+              <span class="mx-2">•</span>
+              <span class="italic">Updated <FormattedDate date={updatedDate} /></span>
+            )
+          }
+        </div>
+        <div class="flex justify-center mb-6">
+          <img src="/logo.svg" alt="Daman Game Logo" class="h-16 w-16 mb-4" />
+        </div>
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+          {title}
+        </h1>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          {description}
+        </p>
+      </div>
 
-	<body>
-		<Header />
-		<main>
-			<article>
-				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
-				</div>
-				<div class="prose">
-					<div class="title">
-						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1>{title}</h1>
-						<hr />
-					</div>
-					<slot />
-				</div>
-			</article>
-		</main>
-		<Footer />
-<SpeedInsights />
-	</body>
-</html>
+      <!-- Hero Image -->
+      {heroImage && (
+        <div class="max-w-4xl mx-auto mb-8">
+          <div class="aspect-video overflow-hidden rounded-xl shadow-lg">
+            <Image 
+              width={1020} 
+              height={510} 
+              src={heroImage} 
+              alt={title}
+              class="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <section class="bg-white py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <article class="prose prose-lg mx-auto text-gray-700 leading-relaxed">
+        <slot />
+      </article>
+    </div>
+  </section>
+
+  <!-- Related Articles CTA -->
+  <section class="bg-gradient-to-br from-gray-50 to-white py-16">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-gray-900 mb-6">Want More Gaming Tips?</h2>
+      <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+        Explore more strategies and guides to improve your gaming skills and increase your winning chances on Daman Game.
+      </p>
+      <div class="space-y-4">
+        <a href="/blog"
+           class="inline-flex items-center bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 text-lg">
+          <span class="mr-2">📚</span> Browse All Articles
+        </a>
+        <a href="https://damanclub.net/#/register?invitationCode=8211414845726"
+           class="inline-flex items-center bg-white text-indigo-700 font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 text-lg border-2 border-indigo-600">
+          <span class="mr-2">🚀</span> Download & Start Playing
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <SpeedInsights />
+</Layout>

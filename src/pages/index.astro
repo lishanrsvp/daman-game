@@ -1,49 +1,232 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import "../styles/tailwind.css";
+import Layout from "../layouts/DefaultLayout.astro";
+
+const title = "Daman Game – India's #1 Real Cash Gaming App | daman.log-in.uk.com";
+const description = "Play Daman Game at daman.log-in.uk.com - India's most trusted color prediction and Aviator game. Win real money, claim bonuses, and enjoy instant withdrawals. Download APK for Android.";
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<Layout {title} {description}>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-indigo-50 to-white py-20 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="mb-8">
+        <div class="inline-flex items-center px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium mb-4">
+          <span class="mr-2">🔥</span> Trusted by 10+ Lakh Players
+        </div>
+      </div>
+      <div class="flex justify-center mb-6">
+        <img src="/logo.svg" alt="Daman Game Logo" class="h-20 w-20 mb-4" />
+      </div>
+      <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+        Play Daman Game & Win <span class="text-indigo-600">Real Cash</span> in India 🇮🇳
+      </h1>
+      <p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+        Experience India's most trusted real cash gaming platform at <strong>daman.log-in.uk.com</strong> with Color Prediction, Aviator, and Big-Small games. Join over 10 lakh satisfied players who enjoy instant withdrawals, daily bonuses, and 24/7 customer support. Download the official APK and start your winning journey today!
+      </p>
+      <div class="space-y-4">
+        <a href="https://damanclub.net/#/register?invitationCode=8211414845726"
+           class="inline-flex items-center bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 text-lg">
+          <span class="mr-2">📥</span> Download APK & Start Winning
+        </a>
+        <div class="flex items-center justify-center space-x-6 text-sm text-gray-500">
+          <div class="flex items-center">
+            <span class="mr-1">🎁</span> ₹100 Welcome Bonus
+          </div>
+          <div class="flex items-center">
+            <span class="mr-1">⚡</span> Instant Withdrawals
+          </div>
+          <div class="flex items-center">
+            <span class="mr-1">🔒</span> 100% Secure
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What is Daman Game -->
+  <section class="bg-white py-16">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8 text-gray-900">What is Daman Game?</h2>
+      <div class="prose prose-lg mx-auto text-gray-700 leading-relaxed">
+        <p class="mb-6">
+          Daman Game is India's premier online gaming platform available at <strong>daman.log-in.uk.com</strong> that offers skill-based real cash games designed specifically for Indian players. Launched with the vision of providing a secure, transparent, and entertaining gaming experience, Daman Game has quickly become the go-to destination for millions of Indian gamers seeking both entertainment and financial rewards.
+        </p>
+        <p class="mb-6">
+          The platform features a diverse collection of games including the popular Color Prediction game, the thrilling Aviator crash game, classic Big-Small dice games, and various lottery options. Each game is designed with user-friendly interfaces, ensuring that both beginners and experienced players can enjoy seamless gameplay while having the opportunity to win real money.
+        </p>
+        <p>
+          What sets Daman Game apart from other gaming platforms is its commitment to transparency, security, and user satisfaction. The platform employs state-of-the-art encryption technology to protect user data and financial transactions, ensuring that players can focus on their gaming experience without worrying about security concerns.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="bg-gradient-to-br from-gray-50 to-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8 text-gray-900">Premium Features & Benefits</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">🎯</div>
+          <h3 class="font-semibold text-gray-800 mb-2">Color Prediction Game</h3>
+          <p class="text-gray-600 text-sm">Master the art of prediction with our most popular game. Choose colors, place bets, and watch your winnings multiply with strategic gameplay.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">✈️</div>
+          <h3 class="font-semibold text-gray-800 mb-2">Aviator Game</h3>
+          <p class="text-gray-600 text-sm">Experience the adrenaline rush of the Aviator crash game with live multipliers. Cash out before the plane crashes to secure your winnings.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">🎲</div>
+          <h3 class="font-semibold text-gray-800 mb-2">Big-Small Game</h3>
+          <p class="text-gray-600 text-sm">Classic dice game with modern twists. Predict the outcome and enjoy consistent winning opportunities with strategic betting.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">💰</div>
+          <h3 class="font-semibold text-gray-800 mb-2">Instant Withdrawals</h3>
+          <p class="text-gray-600 text-sm">Get your winnings instantly via UPI, Paytm, or direct bank transfers. No waiting periods or hidden fees.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">🎁</div>
+          <h3 class="font-semibold text-gray-800 mb-2">Daily Bonuses</h3>
+          <p class="text-gray-600 text-sm">Enjoy daily gift codes, welcome bonuses, and special promotions that boost your winning potential.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+          <div class="text-3xl mb-4">🔐</div>
+          <h3 class="font-semibold text-gray-800 mb-2">Bank-Level Security</h3>
+          <p class="text-gray-600 text-sm">Advanced encryption and secure payment gateways ensure your data and transactions remain completely protected.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Play -->
+  <section class="bg-white py-16">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8 text-gray-900">How to Play & Win Real Cash</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="space-y-6">
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold text-sm">1</div>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-1">Download & Install</h3>
+              <p class="text-gray-600 text-sm">Click the secure download link to get the official Daman Game APK. Allow installation from unknown sources in your Android settings for a smooth setup process.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold text-sm">2</div>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-1">Register & Verify</h3>
+              <p class="text-gray-600 text-sm">Create your account using your phone number and complete the verification process. This ensures a secure and personalized gaming experience.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold text-sm">3</div>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-1">Add Funds</h3>
+              <p class="text-gray-600 text-sm">Deposit money using UPI, Paytm, or other secure payment methods. Start with small amounts to get familiar with the games.</p>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-6">
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold text-sm">4</div>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-1">Choose Your Game</h3>
+              <p class="text-gray-600 text-sm">Explore our game collection and select your favorite. Each game offers unique winning opportunities and exciting gameplay mechanics.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold text-sm">5</div>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-1">Play & Win</h3>
+              <p class="text-gray-600 text-sm">Apply your strategies, make smart bets, and watch your winnings grow. Remember to play responsibly and within your budget.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-4">
+            <div class="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center text-indigo-600 font-bold text-sm">6</div>
+            <div>
+              <h3 class="font-semibold text-gray-800 mb-1">Withdraw Instantly</h3>
+              <p class="text-gray-600 text-sm">Cash out your winnings instantly to your preferred payment method. No waiting periods or withdrawal limits for verified users.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Indians Love Daman Game -->
+  <section class="bg-gradient-to-br from-gray-50 to-white py-16">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8 text-gray-900">Why Millions of Indians Choose Daman Game</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="space-y-4">
+          <div class="flex items-start space-x-3">
+            <span class="text-green-500 text-xl">✅</span>
+            <div>
+              <h3 class="font-semibold text-gray-800">100% Real Cash Gaming</h3>
+              <p class="text-gray-600 text-sm">Experience genuine real money gaming with transparent odds and fair play policies that ensure every player has equal winning opportunities.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-green-500 text-xl">✅</span>
+            <div>
+              <h3 class="font-semibold text-gray-800">₹100 Welcome Bonus</h3>
+              <p class="text-gray-600 text-sm">Start your gaming journey with a generous welcome bonus that gives you extra funds to explore our games and maximize your winning potential.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-green-500 text-xl">✅</span>
+            <div>
+              <h3 class="font-semibold text-gray-800">Fast Withdrawals</h3>
+              <p class="text-gray-600 text-sm">Enjoy lightning-fast withdrawals via UPI, Paytm, and other popular payment methods with no hidden fees or processing delays.</p>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <div class="flex items-start space-x-3">
+            <span class="text-green-500 text-xl">✅</span>
+            <div>
+              <h3 class="font-semibold text-gray-800">Secure & Private Platform</h3>
+              <p class="text-gray-600 text-sm">Bank-level encryption and secure payment gateways ensure your personal information and financial transactions remain completely protected.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-green-500 text-xl">✅</span>
+            <div>
+              <h3 class="font-semibold text-gray-800">24/7 Customer Support</h3>
+              <p class="text-gray-600 text-sm">Our dedicated support team is available round the clock to assist you with any questions or concerns about your gaming experience.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-3">
+            <span class="text-green-500 text-xl">✅</span>
+            <div>
+              <h3 class="font-semibold text-gray-800">Mobile-First Design</h3>
+              <p class="text-gray-600 text-sm">Optimized for Android devices with intuitive navigation and smooth gameplay that works perfectly on all screen sizes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="bg-gradient-to-r from-indigo-600 to-indigo-700 py-20 text-white text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">Join Over 10 Lakh Winners Today</h2>
+      <p class="text-xl mb-8 text-indigo-100 max-w-3xl mx-auto leading-relaxed">
+        Don't miss out on the opportunity to be part of India's most trusted real cash gaming community at <strong>daman.log-in.uk.com</strong>. Download Daman Game now and start your journey towards exciting wins and instant rewards!
+      </p>
+      <div class="space-y-4">
+        <a href="https://damanclub.net/#/register?invitationCode=8211414845726"
+           class="inline-flex items-center bg-white text-indigo-700 font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 text-lg">
+          <span class="mr-2">🚀</span> Download & Start Playing Now
+        </a>
+        <p class="text-sm text-indigo-200">⚡ Instant Download • 🔒 100% Secure • 💰 Real Cash Rewards</p>
+      </div>
+    </div>
+  </section>
+
+</Layout>

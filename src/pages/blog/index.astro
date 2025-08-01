@@ -1,114 +1,107 @@
 ---
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
-import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
+import Layout from '../../layouts/DefaultLayout.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
-import Header from '../../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+const title = "Daman Game Blog - Latest Gaming Tips, Strategies & News | daman.log-in.uk.com";
+const description = "Stay updated with the latest Daman Game news, gaming strategies, tips, and insights. Learn how to win more at Color Prediction, Aviator, and other real cash games.";
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-		<style>
-			main {
-				width: 960px;
-			}
-			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-			}
-			ul li {
-				width: calc(50% - 1rem);
-			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
-				text-align: center;
-			}
-			ul li:first-child img {
-				width: 100%;
-			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
-			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
-			}
-			ul li a {
-				display: block;
-			}
-			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
-			}
-			.date {
-				margin: 0;
-				color: rgb(var(--gray));
-			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
-			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
-			}
-			@media (max-width: 720px) {
-				ul {
-					gap: 0.5em;
-				}
-				ul li {
-					width: 100%;
-					text-align: center;
-				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<section>
-				<ul>
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`}>
-									{post.data.heroImage && (
-										<Image width={720} height={360} src={post.data.heroImage} alt="" />
-									)}
-									<h4 class="title">{post.data.title}</h4>
-									<p class="date">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-		<Footer />
-	</body>
-</html>
+<Layout {title} {description}>
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-br from-indigo-50 to-white py-20 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="mb-8">
+        <div class="inline-flex items-center px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full text-sm font-medium mb-4">
+          <span class="mr-2">📰</span> Daman Game Blog
+        </div>
+      </div>
+      <div class="flex justify-center mb-6">
+        <img src="/logo.svg" alt="Daman Game Logo" class="h-20 w-20 mb-4" />
+      </div>
+      <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+        Latest <span class="text-indigo-600">Gaming Insights</span>
+      </h1>
+      <p class="text-xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
+        Discover expert tips, winning strategies, and the latest news from India's most trusted real cash gaming platform at <strong>daman.log-in.uk.com</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Blog Posts -->
+  <section class="bg-white py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          posts.map((post) => (
+            <article class="bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow overflow-hidden">
+              <a href={`/blog/${post.id}/`} class="block">
+                {post.data.heroImage && (
+                  <div class="aspect-video overflow-hidden">
+                    <Image 
+                      width={400} 
+                      height={225} 
+                      src={post.data.heroImage} 
+                      alt={post.data.title}
+                      class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                )}
+                <div class="p-6">
+                  <div class="flex items-center text-sm text-gray-500 mb-3">
+                    <FormattedDate date={post.data.pubDate} />
+                  </div>
+                  <h2 class="text-xl font-bold text-gray-900 mb-3 hover:text-indigo-600 transition-colors">
+                    {post.data.title}
+                  </h2>
+                  <p class="text-gray-600 text-sm leading-relaxed">
+                    {post.data.description}
+                  </p>
+                  <div class="mt-4 flex items-center text-indigo-600 font-medium text-sm">
+                    Read More
+                    <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                  </div>
+                </div>
+              </a>
+            </article>
+          ))
+        }
+      </div>
+      
+      {posts.length === 0 && (
+        <div class="text-center py-16">
+          <div class="text-6xl mb-4">📝</div>
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">No Blog Posts Yet</h2>
+          <p class="text-gray-600 max-w-md mx-auto">
+            We're working on creating amazing content for you. Check back soon for gaming tips, strategies, and the latest Daman Game news!
+          </p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="bg-gradient-to-r from-indigo-600 to-indigo-700 py-16 text-white text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Start Winning?</h2>
+      <p class="text-xl mb-8 text-indigo-100 max-w-3xl mx-auto leading-relaxed">
+        Apply these strategies and tips to your gameplay. Download Daman Game today and start your journey towards exciting wins!
+      </p>
+      <div class="space-y-4">
+        <a href="https://damanclub.net/#/register?invitationCode=8211414845726"
+           class="inline-flex items-center bg-white text-indigo-700 font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200 text-lg">
+          <span class="mr-2">🚀</span> Download & Start Playing
+        </a>
+        <p class="text-sm text-indigo-200">⚡ Instant Download • 🔒 100% Secure • 💰 Real Cash Rewards</p>
+      </div>
+    </div>
+  </section>
+</Layout>
